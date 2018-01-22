@@ -45,11 +45,39 @@ router.post('/', jsonParser, (req, res) => {
 
 router.delete('/:id', (req, res) => {
 	BlogPosts.delete(req.params.id);
-	console.log(`Deleted shopping list item \'${req.params.id}\'`);
+	console.log(`Deleted blog post with id of: \'${req.params.id}\'`);
 	res.status(204).end();
 });
 
-router.put('/:id', jsonParser, (req, res))
+// when PUT request comes in with new blog post
+// check required fields (and id)
+// if all okay, update post calling BlogPosts.update
+router.put('/:id', jsonParser, (req, res) => {
+	const requiredFields = ['title', 'content', 'author'];
+	for (let i = 0; i < requiredFields.length; i++) {
+		const field = requiredFields[i];
+		if (!(field in req.body)) {
+			const message = `Missing \'${field}\' in request body`
+			console.error(message);
+			return res.status(400).send(message);
+		}
+	}
+	if (req.params.id !== req.body.id) {
+		const message = (
+			`Request path id (${req.params.id}) and request body id `
+			`(${req.body.id}) must match`);
+		console.error(message);
+		return res.status(400).send(message);
+	}
+	console.log(`Updating blog post with id of: \'${req.params.id}\'`);
+	const updatedPost = BlogPosts.update({
+		id: req.params.id,
+		title: req.body.title,
+		content: req.body.content,
+		author: req.body.author
+	});
+	res.status(204).end();
+});
 
 
 
