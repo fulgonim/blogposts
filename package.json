@@ -10,6 +10,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.12.4",
     "morgan": "^1.7.0",
+    "package.json": "^2.0.1",
     "uuid": "^2.0.3"
   },
   "engines": {
@@ -17,12 +18,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:fulgonim/thinkful-blogposts.git"
+    "url": "git+ssh://git@github.com/fulgonim/thinkful-blogposts.git"
   },
   "keywords": [
     "node",
     "hyperdev",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fulgonim/thinkful-blogposts/issues"
+  },
+  "homepage": "https://github.com/fulgonim/thinkful-blogposts#readme",
+  "devDependencies": {},
+  "author": "Max Fulgoni"
 }
