@@ -3,8 +3,8 @@ const morgan = require('morgan');
 
 const app = express();
 
-const getPostRouter = require('./getPostRouter');
-const deletePutRouter = require('./deletePutRouter');
+const CRUDRouter = require('./CRUDRouter');
+//const deletePutRouter = require('./deletePutRouter');
 
 
 app.use(morgan('common'));
@@ -13,8 +13,8 @@ app.use(morgan('common'));
 //requests for GET and POST that come into /blog-posts are routed to getPostRouter.js 
 //requests for DELETE and PUT that come into /blog-posts/:id are routed to deletePutRouter.js
 
-app.use('/blog-posts', getPostRouter);
-app.use('/blog-posts/:id', deletePutRouter);
+app.use('/blog-posts', CRUDRouter);
+//app.use('/blog-posts/:id', deletePutRouter);
 
 
 
