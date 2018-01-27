@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: e0B9YxVfJRmxmmU4C+f03m6Lq0ybAhw+1oxmmwFHUFXvGTLMGj/X1WHR0iTr5yu+4CpPqVCSxZVGcxM4PYHsZjIgjisz/f7JuzNzG5Y8x1+iJ1TSITSG/kCyR+lsQ/XcnAJyu5mqS7jxEzP0KChsVIQoB4IHgFg9hkYedadzYzn4EQj9X86+gwCawtPgiSekH/pbmIS6WYKNfZm3SuJILpTsc+bLWTM7izjiA1rb17HTWd8ZmWgffmXn14/isppYr25vJriH7KoRn4EmQ0eNwZHfA4T6YrmEfhvegBz0SeL0xnGL/m0DhdNgXF3ZYppcblXN0c4WJhAVQVe0Txvrhvm3ZihY4OnGiC2xwPJ9wJ8Dd5a2fwj68LuBZFMxXJacBI73uoBpPEdQDjbOcvBYzLqYnEApw2PPtU17XCzoErV6jT2yPtm5/S035oOqmJj5ypz/Lg7aizEGCqKExew5qD2tV8I/hj2sGCTyHWjTht7T3bNXFHCB8ZHRBM9Hl44EYoqIYGmuTxLPBvDPko1MfmauksPpA/2lHDgYEuBLVBavMzO4Wv3MVaeOKZIuplKNHBIaeKawY6N9F7UWt1KqnonBK/bwrhZoXe0o0iuRcp+OsfefrkiBKlC/BYcy03G/rE8cLgXn5mguwBppO/jUhn2Qilq6E4ivaI5BQ4HS4Bg=
+  app: thawing-hamlet-72443
+  on:
+    repo: fulgonim/blogposts
