@@ -29,7 +29,7 @@ router.post('/', jsonParser, (req, res) => {
 
 	// ensure 'title' 'content' 'author' and 'publishDate' are present
 	// publish date should be the date it is submitted
-	const requiredFields = ['title', 'content', 'author'];
+	const requiredFields = ['title', 'content', 'author', 'publishDate'];
 	for (let i = 0; i < requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -38,7 +38,7 @@ router.post('/', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
-	const newPost = BlogPosts.create(req.body.title, req.body.content, req.body.author);
+	const newPost = BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);
 	res.status(201).json(newPost);
 });
 
@@ -53,7 +53,7 @@ router.delete('/:id', (req, res) => {
 // check required fields (and id)
 // if all okay, update post calling BlogPosts.update
 router.put('/:id', jsonParser, (req, res) => {
-	const requiredFields = ['title', 'content', 'author'];
+	const requiredFields = ['title', 'content', 'author', 'publishDate'];
 	for (let i = 0; i < requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -74,8 +74,10 @@ router.put('/:id', jsonParser, (req, res) => {
 		id: req.params.id,
 		title: req.body.title,
 		content: req.body.content,
-		author: req.body.author
+		author: req.body.author,
+		publishDate: req.body.publishDate
 	});
+	res.send(updatedPost);
 	res.status(204).end();
 });
 
